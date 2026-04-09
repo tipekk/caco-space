@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tomáš Čačo | IT portfólio</title>
+  <meta name="description" content="Bilingválne osobné portfólio Tomáša Čača v slovenčine a angličtine." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root, [data-theme="light"] {
+      --text-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
+      --text-sm: clamp(0.875rem, 0.8rem + 0.35vw, 1rem);
+      --text-base: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+      --text-lg: clamp(1.125rem, 1rem + 0.75vw, 1.5rem);
+      --text-xl: clamp(1.5rem, 1.2rem + 1.25vw, 2.25rem);
+      --text-2xl: clamp(2rem, 1.2rem + 2.5vw, 3.5rem);
+      --text-hero: clamp(3rem, 0.5rem + 7vw, 7rem);
+
+      --space-1: 0.25rem;
+      --space-2: 0.5rem;
+      --space-3: 0.75rem;
+      --space-4: 1rem;
+      --space-5: 1.25rem;
+      --space-6: 1.5rem;
+      --space-8: 2rem;
+      --space-10: 2.5rem;
+      --space-12: 3rem;
+      --space-16: 4rem;
+      --space-20: 5rem;
+
+      --color-bg: #f7f6f2;
+      --color-surface: #faf8f4;
+      --color-surface-2: #f2ede6;
+      --color-border: #d7d0c6;
+      --color-divider: #dfd6cb;
+      --color-text: #221f19;
+      --color-text-muted: #68635d;
+      --color-text-faint: #9f988f;
+      --color-text-inverse: #f8f6f1;
+      --color-primary: #0d6b70;
+      --color-primary-hover: #0b5457;
+      --color-accent: #dc6d1f;
+      --color-accent-strong: #c4570f;
+      --color-accent-soft: #f7dfcf;
+      --shadow-sm: 0 2px 10px rgba(34, 31, 25, 0.05);
+      --shadow-md: 0 16px 48px rgba(34, 31, 25, 0.08);
+      --radius-sm: 0.5rem;
+      --radius-md: 0.875rem;
+      --radius-lg: 1.25rem;
+      --radius-xl: 1.75rem;
+      --radius-full: 999px;
+      --content: 1160px;
+      --font-display: 'Instrument Serif', Georgia, serif;
+      --font-body: 'Inter', system-ui, sans-serif;
+    }
+
+    [data-theme="dark"] {
+      --color-bg: #141311;
+      --color-surface: #1b1917;
+      --color-surface-2: #241f1b;
+      --color-border: #38342f;
+      --color-divider: #2d2925;
+      --color-text: #ece7df;
+      --color-text-muted: #b4aea5;
+      --color-text-faint: #827b72;
+      --color-text-inverse: #171513;
+      --color-primary: #69a8af;
+      --color-primary-hover: #88b9bf;
+      --color-accent: #ff9a4d;
+      --color-accent-strong: #ff7f22;
+      --color-accent-soft: #412c1f;
+      --shadow-sm: 0 2px 10px rgba(0, 0, 0, 0.22);
+      --shadow-md: 0 18px 56px rgba(0, 0, 0, 0.35);
+    }
+
+    * , *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: var(--font-body);
+      font-size: var(--text-base);
+      line-height: 1.65;
+      color: var(--color-text);
+      background:
+        radial-gradient(circle at top left, color-mix(in srgb, var(--color-primary) 10%, transparent), transparent 32%),
+        radial-gradient(circle at bottom right, color-mix(in srgb, var(--color-accent) 12%, transparent), transparent 28%),
+        var(--color-bg);
+    }
+
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; }
+    [hidden] { display: none !important; }
+    :focus-visible {
+      outline: 2px solid var(--color-primary);
+      outline-offset: 3px;
+      border-radius: var(--radius-sm);
+    }
+
+    .container {
+      width: min(calc(100% - 2rem), var(--content));
+      margin-inline: auto;
+    }
+
+    .skip-link {
+      position: absolute;
+      left: -999px;
+      top: var(--space-4);
+      background: var(--color-primary);
+      color: var(--color-text-inverse);
+      padding: var(--space-3) var(--space-4);
+      z-index: 100;
+      border-radius: var(--radius-full);
+    }
+    .skip-link:focus { left: var(--space-4); }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(18px);
+      background: color-mix(in srgb, var(--color-bg) 82%, transparent);
+      border-bottom: 1px solid color-mix(in srgb, var(--color-text) 10%, transparent);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-4);
+      min-height: 78px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: var(--space-5);
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      color: var(--color-text-muted);
+      font-size: var(--text-sm);
+    }
+
+    .nav-links a:hover { color: var(--color-text); }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+    }
+
+    .lang-switch {
+      display: inline-flex;
+      padding: 0.25rem;
+      border-radius: var(--radius-full);
+      background: var(--color-surface);
+      border: 1px solid color-mix(in srgb, var(--color-text) 10%, transparent);
+      box-shadow: var(--shadow-sm);
+      gap: 0.2rem;
+    }
+
+    .lang-switch button,
+    .theme-toggle {
+      cursor: pointer;
+      border: 0;
+    }
+
+    .lang-switch button {
+      min-width: 44px;
+      height: 36px;
+      border-radius: var(--radius-full);
+      background: transparent;
+      color: var(--color-text-muted);
+      font-weight: 700;
+    }
+
+    .lang-switch button.active {
+      background: var(--color-accent-soft);
+      color: var(--color-accent-strong);
+    }
+
+    .theme-toggle {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: 1px solid color-mix(in srgb, var(--color-text) 10%, transparent);
+      background: var(--color-surface);
+      color: var(--color-text);
+      display: grid;
+      place-items: center;
+    }
+
+    .hero {
+      padding: clamp(5rem, 10vw, 9rem) 0 var(--space-20);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: var(--space-10);
+      align-items: end;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      gap: var(--space-2);
+      align-items: center;
+      padding: 0.6rem 1rem;
+      background: var(--color-surface);
+      border: 1px solid color-mix(in srgb, var(--color-text) 10%, transparent);
+      border-radius: var(--radius-full);
+      color: var(--color-text-muted);
+      font-size: var(--text-xs);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: var(--space-6);
+      flex-wrap: wrap;
+    }
+
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: var(--text-hero);
+      line-height: 0.92;
+      letter-spacing: -0.04em;
+      margin: 0 0 var(--space-5);
+      max-width: 10ch;
+    }
+
+    .hero-title span { color: var(--color-primary); }
+
+    .hero-text {
+      max-width: 64ch;
+      color: var(--color-text-muted);
+      margin: 0 0 var(--space-8);
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-3);
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      padding: 0.8rem 1rem;
+      border-radius: var(--radius-full);
+      background: var(--color-surface);
+      border: 1px solid color-mix(in srgb, var(--color-text) 9%, transparent);
+      color: var(--color-text);
+      box-shadow: var(--shadow-sm);
+      font-size: var(--text-sm);
+    }
+
+    .hero-card {
+      padding: clamp(1.5rem, 3vw, 2.5rem);
+      border-radius: var(--radius-xl);
+      background: linear-gradient(180deg, var(--color-surface), var(--color-surface-2));
+      border: 1px solid color-mix(in srgb, var(--color-text) 10%, transparent);
+      box-shadow: var(--shadow-md);
+    }
+
+    .hero-card-top {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      gap: var(--space-4);
+      margin-bottom: var(--space-8);
+    }
+
+    .hero-card-label {
+      color: var(--color-accent-strong);
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      font-size: var(--text-xs);
+      margin-bottom: var(--space-2);
+      font-weight: 700;
+    }
+
+    .hero-name {
+      font-size: clamp(1.5rem, 3vw, 2.4rem);
+      line-height: 1.02;
+      margin: 0;
+    }
+
+    .hero-role {
+      margin: var(--space-3) 0 0;
+      color: var(--color-text-muted);
+    }
+
+    .hero-accent-line {
+      width: 72px;
+      height: 2px;
+      background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
+      border-radius: 999px;
+      margin-top: var(--space-5);
+    }
+
+    section {
+      padding: clamp(4rem, 7vw, 6rem) 0;
+      border-top: 1px solid color-mix(in srgb, var(--color-text) 9%, transparent);
+    }
+
+    .section-grid {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: var(--space-10);
+      align-items: start;
+    }
+
+    .section-kicker {
+      color: var(--color-accent-strong);
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      font-size: var(--text-xs);
+      margin-bottom: var(--space-3);
+      font-weight: 700;
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: var(--text-2xl);
+      line-height: 0.98;
+      margin: 0;
+    }
+
+    .lede {
+      font-size: var(--text-lg);
+      color: var(--color-text-muted);
+      max-width: 60ch;
+      margin: 0 0 var(--space-8);
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: var(--space-5);
+    }
+
+    .card {
+      background: var(--color-surface);
+      border: 1px solid color-mix(in srgb, var(--color-text) 10%, transparent);
+      border-radius: var(--radius-lg);
+      padding: var(--space-6);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .card h3 {
+      margin: 0 0 var(--space-2);
+      font-size: var(--text-lg);
+    }
+
+    .card p, .card li, .timeline-copy { color: var(--color-text-muted); }
+
+    .timeline {
+      display: grid;
+      gap: var(--space-4);
+    }
+
+    .timeline-item {
+      position: relative;
+      padding: var(--space-5) var(--space-5) var(--space-5) var(--space-6);
+      border-radius: var(--radius-lg);
+      background: var(--color-surface);
+      border: 1px solid color-mix(in srgb, var(--color-text) 10%, transparent);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 20px;
+      bottom: 20px;
+      width: 3px;
+      border-radius: 999px;
+      background: linear-gradient(180deg, var(--color-primary), var(--color-accent));
+    }
+
+    .timeline-date {
+      display: inline-block;
+      margin-bottom: var(--space-2);
+      color: var(--color-accent-strong);
+      font-size: var(--text-sm);
+      font-weight: 700;
+    }
+
+    .timeline-title {
+      margin: 0 0 var(--space-2);
+      font-size: var(--text-lg);
+    }
+
+    .skill-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: var(--space-4);
+    }
+
+    .skill-item {
+      padding: var(--space-5);
+      border-radius: var(--radius-lg);
+      background: var(--color-surface);
+      border: 1px solid color-mix(in srgb, var(--color-text) 10%, transparent);
+      min-height: 120px;
+    }
+
+    .skill-item strong {
+      display: block;
+      margin-bottom: var(--space-2);
+      color: var(--color-primary);
+      font-size: var(--text-lg);
+    }
+
+    .expertise-cloud {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-3);
+      margin-top: var(--space-6);
+    }
+
+    .expertise-cloud span {
+      padding: 0.8rem 1rem;
+      border-radius: var(--radius-full);
+      background: color-mix(in srgb, var(--color-accent) 11%, var(--color-surface));
+      border: 1px solid color-mix(in srgb, var(--color-text) 9%, transparent);
+      font-size: var(--text-sm);
+    }
+
+    .footer {
+      padding: var(--space-8) 0 var(--space-12);
+      color: var(--color-text-muted);
+      font-size: var(--text-sm);
+    }
+
+
+
+    .cookie-banner {
+      position: fixed;
+      left: 50%;
+      bottom: var(--space-4);
+      transform: translateX(-50%);
+      width: min(calc(100% - 1.5rem), 920px);
+      padding: var(--space-5);
+      border-radius: var(--radius-xl);
+      background: color-mix(in srgb, var(--color-surface) 92%, transparent);
+      border: 1px solid color-mix(in srgb, var(--color-text) 12%, transparent);
+      box-shadow: var(--shadow-md);
+      backdrop-filter: blur(18px);
+      z-index: 80;
+    }
+
+    .cookie-banner[hidden] { display: none !important; }
+
+    .cookie-inner {
+      display: flex;
+      gap: var(--space-5);
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    .cookie-copy {
+      flex: 1 1 420px;
+      color: var(--color-text-muted);
+      font-size: var(--text-sm);
+    }
+
+    .cookie-copy strong {
+      display: block;
+      color: var(--color-text);
+      margin-bottom: var(--space-1);
+      font-size: var(--text-base);
+    }
+
+    .cookie-actions {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      flex-wrap: wrap;
+    }
+
+    .cookie-btn {
+      min-height: 44px;
+      padding: 0.8rem 1.1rem;
+      border-radius: var(--radius-full);
+      border: 1px solid color-mix(in srgb, var(--color-text) 10%, transparent);
+      background: var(--color-surface-2);
+      color: var(--color-text);
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    .cookie-btn.primary {
+      background: var(--color-primary);
+      color: var(--color-text-inverse);
+      border-color: transparent;
+    }
+
+    .cookie-btn.primary:hover { background: var(--color-primary-hover); }
+
+
+    .footer-row {
+      display: flex;
+      justify-content: space-between;
+      gap: var(--space-4);
+      flex-wrap: wrap;
+      border-top: 1px solid color-mix(in srgb, var(--color-text) 9%, transparent);
+      padding-top: var(--space-6);
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid,
+      .section-grid,
+      .cards,
+      .skill-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .section-grid { gap: var(--space-6); }
+      .hero-title { max-width: 12ch; }
+    }
+
+    @media (max-width: 720px) {
+      .nav {
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: var(--space-4) 0;
+      }
+
+      .nav-links {
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: var(--space-3);
+      }
+
+      .nav-actions {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .hero { padding-top: var(--space-16); }
+      .hero-title { font-size: clamp(3.2rem, 17vw, 5rem); }
+      .hero-card-top {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      * { transition: none !important; animation: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#obsah">Preskočiť na obsah</a>
+
+  <header class="site-header">
+    <div class="container nav">
+      <nav aria-label="Hlavná navigácia">
+        <ul class="nav-links">
+          <li><a href="#o-mne" data-sk="O mne" data-en="About">O mne</a></li>
+          <li><a href="#vzdelanie" data-sk="Vzdelanie" data-en="Education">Vzdelanie</a></li>
+          <li><a href="#skusenosti" data-sk="Skúsenosti" data-en="Experience">Skúsenosti</a></li>
+          <li><a href="#znalosti" data-sk="Znalosti" data-en="Skills">Znalosti</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <div class="lang-switch" aria-label="Prepínač jazyka">
+          <button type="button" class="active" data-lang-btn="sk">SK</button>
+          <button type="button" data-lang-btn="en">EN</button>
+        </div>
+        <button class="theme-toggle" type="button" data-theme-toggle aria-label="Prepnúť tému">
+          <span aria-hidden="true">◐</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="obsah">
+    <section class="hero" id="top">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow" data-sk="Informačný špecialista · Creatívne portfólio" data-en="Information Specialist · Creative Portfolio">Informačný špecialista · Creatívne portfólio</div>
+          <h1 class="hero-title" data-sk="Tomáš <span>Čačo</span>" data-en="Tomáš <span>Čačo</span>">Tomáš <span>Čačo</span></h1>
+          <p class="hero-text" data-sk="Ahoj, vitaj na mojom profile. Som IT špecialista s analytickým prístupom, zmyslom pre detail a prirodzenou orientáciou na riešenie problémov. Technológie ma motivujú objavovať nové koncepty, zlepšovať infraštruktúru a hľadať praktické riešenia, ktoré fungujú v reálnej prevádzke." data-en="Hello, welcome to my profile. I am an IT specialist with an analytical mindset, strong attention to detail and a natural focus on solving problems. Technology motivates me to explore new concepts, improve infrastructure and find practical solutions that work in real operations.">Ahoj, vitaj na mojom profile. Som IT špecialista s analytickým prístupom, zmyslom pre detail a prirodzenou orientáciou na riešenie problémov. Technológie ma motivujú objavovať nové koncepty, zlepšovať infraštruktúru a hľadať praktické riešenia, ktoré fungujú v reálnej prevádzke.</p>
+          <div class="hero-meta">
+            <span class="pill" data-sk="IT infraštruktúra" data-en="IT Infrastructure">IT infraštruktúra</span>
+            <span class="pill" data-sk="Správa systémov" data-en="Systems Administration">Správa systémov</span>
+            <span class="pill" data-sk="Networking" data-en="Networking">Networking</span>
+            <span class="pill" data-sk="Virtualizácia" data-en="Virtualization">Virtualizácia</span>
+          </div>
+        </div>
+
+        <aside class="hero-card" aria-label="Profilové zhrnutie">
+          <div class="hero-card-top">
+            <div>
+              <div class="hero-card-label" data-sk="Profil" data-en="Profile">Profil</div>
+              <h2 class="hero-name" data-sk="IT špecialista" data-en="IT Specialist">IT špecialista</h2>
+              <p class="hero-role" data-sk="Flexibilný, zvedavý a otvorený novým myšlienkam v technologickom svete." data-en="Flexible, curious and open to new ideas in the world of technology.">Flexibilný, zvedavý a otvorený novým myšlienkam v technologickom svete.</p>
+              <div class="hero-accent-line" aria-hidden="true"></div>
+            </div>
+          </div>
+          <p class="hero-text" style="margin-bottom:0;" data-sk="Svojim prirodzeným analytickým prístupom sa sústredím na detaily a riešenie problémov. Som flexibilný a ľahko sa prispôsobujem novým situáciám. Moja zvedavosť ma neustále poháňa k objavovaniu a zdokonaľovaniu sa." data-en="With my natural analytical approach, I focus on details and problem solving. I am flexible and adapt easily to new situations. My curiosity constantly drives me to explore and improve.">Svojim prirodzeným analytickým prístupom sa sústredím na detaily a riešenie problémov. Som flexibilný a ľahko sa prispôsobujem novým situáciám. Moja zvedavosť ma neustále poháňa k objavovaniu a zdokonaľovaniu sa.</p>
+        </aside>
+      </div>
+    </section>
+
+    <section id="o-mne">
+      <div class="container section-grid">
+        <div>
+          <div class="section-kicker" data-sk="Niečo o mne" data-en="About me">Niečo o mne</div>
+          <h2 class="section-title" data-sk="Ahoj, moje meno je Tomáš" data-en="Hello, my name is Tomáš">Ahoj, moje meno je Tomáš</h2>
+        </div>
+        <div>
+          <p class="lede" data-sk="Moja vášeň pre technológie ma neustále motivuje objavovať nové koncepty a inovácie. Rád prepájam technické myslenie s praktickou realizáciou a dlhodobo sa venujem infraštruktúre, bezpečnosti a správe systémov." data-en="My passion for technology constantly motivates me to explore new concepts and innovations. I enjoy connecting technical thinking with practical execution and I have long focused on infrastructure, security and systems administration.">Moja vášeň pre technológie ma neustále motivuje objavovať nové koncepty a inovácie. Rád prepájam technické myslenie s praktickou realizáciou a dlhodobo sa venujem infraštruktúre, bezpečnosti a správe systémov.</p>
+          <div class="cards">
+            <article class="card">
+              <h3 data-sk="Analytický prístup" data-en="Analytical approach">Analytický prístup</h3>
+              <p data-sk="Pri práci sa sústredím na detaily, štruktúru a efektívne riešenie problémov v každodennej prevádzke." data-en="In my work, I focus on detail, structure and effective problem solving in day-to-day operations.">Pri práci sa sústredím na detaily, štruktúru a efektívne riešenie problémov v každodennej prevádzke.</p>
+            </article>
+            <article class="card">
+              <h3 data-sk="Adaptabilita" data-en="Adaptability">Adaptabilita</h3>
+              <p data-sk="Som flexibilný a ľahko sa prispôsobujem novým situáciám, prostrediam aj technológiám." data-en="I am flexible and adapt easily to new situations, environments and technologies.">Som flexibilný a ľahko sa prispôsobujem novým situáciám, prostrediam aj technológiám.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="vzdelanie">
+      <div class="container section-grid">
+        <div>
+          <div class="section-kicker" data-sk="Odborné vzdelanie" data-en="Education">Odborné vzdelanie</div>
+          <h2 class="section-title" data-sk="Vzdelanie" data-en="Education">Vzdelanie</h2>
+        </div>
+        <div class="timeline">
+          <article class="timeline-item">
+            <span class="timeline-date">2003 — 2007</span>
+            <h3 class="timeline-title">SOŠ Poprad</h3>
+            <p class="timeline-copy" data-sk="Stredoškolský základ, na ktorom vznikol môj dlhodobý záujem o technológie a systémové myslenie." data-en="A secondary school foundation where my long-term interest in technology and systems thinking began.">Stredoškolský základ, na ktorom vznikol môj dlhodobý záujem o technológie a systémové myslenie.</p>
+          </article>
+          <article class="timeline-item">
+            <span class="timeline-date">2008 — 2013</span>
+            <h3 class="timeline-title">TUKE / FBERG</h3>
+            <p class="timeline-copy" data-sk="Inžinierske vzdelanie, ktoré mi pomohlo rozvíjať analytický prístup, disciplínu a technické uvažovanie." data-en="Engineering education that helped me develop analytical thinking, discipline and technical reasoning.">Inžinierske vzdelanie, ktoré mi pomohlo rozvíjať analytický prístup, disciplínu a technické uvažovanie.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="skusenosti">
+      <div class="container section-grid">
+        <div>
+          <div class="section-kicker" data-sk="Pracovné skúsenosti" data-en="Work experience">Pracovné skúsenosti</div>
+          <h2 class="section-title" data-sk="Prax a zodpovednosť" data-en="Practice and responsibility">Prax a zodpovednosť</h2>
+        </div>
+        <div class="timeline">
+          <article class="timeline-item">
+            <span class="timeline-date">2013 — 2017</span>
+            <h3 class="timeline-title" data-sk="Cona s.r.o. — Manažér IT" data-en="Cona s.r.o. — IT Manager">Cona s.r.o. — Manažér IT</h3>
+            <p class="timeline-copy" data-sk="Zodpovednosť za IT agendu, prevádzku a koordináciu technických riešení." data-en="Responsible for IT operations, agenda and coordination of technical solutions.">Zodpovednosť za IT agendu, prevádzku a koordináciu technických riešení.</p>
+          </article>
+          <article class="timeline-item">
+            <span class="timeline-date">2017 — 2020</span>
+            <h3 class="timeline-title" data-sk="Záchranná služba Košice — Informatik" data-en="Emergency Service Košice — IT Specialist">Záchranná služba Košice — Informatik</h3>
+            <p class="timeline-copy" data-sk="Správa informačných technológií v prostredí, kde je dôležitá spoľahlivosť, dostupnosť a rýchla reakcia." data-en="Administration of information technologies in an environment where reliability, availability and quick response are essential.">Správa informačných technológií v prostredí, kde je dôležitá spoľahlivosť, dostupnosť a rýchla reakcia.</p>
+          </article>
+          <article class="timeline-item">
+            <span class="timeline-date">2020 — súčasnosť</span>
+            <h3 class="timeline-title" data-sk="VŠOUG v Košiciach — Informatik" data-en="VŠOUG in Košice — IT Specialist">VŠOUG v Košiciach — Informatik</h3>
+            <p class="timeline-copy" data-sk="Komplexná IT podpora, systémová správa a rozvoj infraštruktúry v odbornom pracovnom prostredí." data-en="Comprehensive IT support, systems administration and infrastructure development in a professional working environment.">Komplexná IT podpora, systémová správa a rozvoj infraštruktúry v odbornom pracovnom prostredí.</p>
+          </article>
+          <article class="timeline-item">
+            <span class="timeline-date">04 / 2023 — súčasnosť</span>
+            <h3 class="timeline-title" data-sk="Solvio s.r.o. — Konateľ" data-en="Solvio s.r.o. — Managing Director">Solvio s.r.o. — Konateľ</h3>
+            <p class="timeline-copy" data-sk="Vedenie spoločnosti, rozhodovanie o technologickom smerovaní a dohľad nad realizáciou IT riešení a prevádzkových aktivít." data-en="Leading the company, making decisions about technological direction and overseeing the delivery of IT solutions and operational activities.">Vedenie spoločnosti, rozhodovanie o technologickom smerovaní a dohľad nad realizáciou IT riešení a prevádzkových aktivít.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="znalosti">
+      <div class="container section-grid">
+        <div>
+          <div class="section-kicker" data-sk="Odborné znalosti" data-en="Professional skills">Odborné znalosti</div>
+          <h2 class="section-title" data-sk="Technológie a správa" data-en="Technologies and administration">Technológie a správa</h2>
+        </div>
+        <div>
+          <p class="lede" data-sk="Zameriavam sa na správu systémov, virtualizáciu, sieťovú infraštruktúru a administráciu cloudových aj on‑prem riešení." data-en="I focus on systems administration, virtualization, network infrastructure and administration of both cloud and on-prem solutions.">Zameriavam sa na správu systémov, virtualizáciu, sieťovú infraštruktúru a administráciu cloudových aj on‑prem riešení.</p>
+          <div class="skill-grid">
+            <article class="skill-item">
+              <strong>Windows</strong>
+              <p data-sk="Windows Server administrácia, Active Directory a správa pracovných staníc." data-en="Windows Server administration, Active Directory and workstation management.">Windows Server administrácia, Active Directory a správa pracovných staníc.</p>
+            </article>
+            <article class="skill-item">
+              <strong>Linux</strong>
+              <p data-sk="Prevádzka a správa linuxových systémov v produkčnom aj servisnom nasadení." data-en="Operation and administration of Linux systems in production and service environments.">Prevádzka a správa linuxových systémov v produkčnom aj servisnom nasadení.</p>
+            </article>
+            <article class="skill-item">
+              <strong data-sk="Virtualizácia" data-en="Virtualization">Virtualizácia</strong>
+              <p data-sk="Proxmox administrácia, konsolidácia služieb a efektívne využitie infraštruktúry." data-en="Proxmox administration, service consolidation and efficient infrastructure usage.">Proxmox administrácia, konsolidácia služieb a efektívne využitie infraštruktúry.</p>
+            </article>
+            <article class="skill-item">
+              <strong>Networking</strong>
+              <p data-sk="Unifi Firewall/NVR, návrh segmentácie a správa sieťových prvkov." data-en="Unifi Firewall/NVR, segmentation design and network device administration.">Unifi Firewall/NVR, návrh segmentácie a správa sieťových prvkov.</p>
+            </article>
+          </div>
+
+          <div class="expertise-cloud" aria-label="Zoznam odborností">
+            <span>ESET Protect Administrátor</span>
+            <span>Proxmox Administrátor</span>
+            <span>Synology Administrátor</span>
+            <span>WordPress Administrátor</span>
+            <span>Unifi Firewall/NVR Administrátor</span>
+            <span>Microsoft Office 365 Administrátor</span>
+            <span>Microsoft Azure Administrátor</span>
+            <span>Windows Server Administrátor</span>
+            <span>Active Directory Administrátor</span>
+            <span>Google Analytics Administrátor</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-row">
+      <span>Tomáš Čačo</span>
+      <span data-sk="IT portfólio" data-en="IT Portfolio">IT portfólio</span>
+      <span data-sk="Slovenčina / English" data-en="English / Slovenčina">Slovenčina / English</span>
+    </div>
+  </footer>
+
+  <div class="cookie-banner" id="cookie-banner" role="dialog" aria-live="polite" aria-label="Cookie consent">
+    <div class="container cookie-inner">
+      <div class="cookie-copy">
+        <strong data-sk="Súhlas s cookies" data-en="Cookie consent">Súhlas s cookies</strong>
+        <span data-sk="Táto stránka používa technické cookies pre správne fungovanie a anonymné meranie návštevnosti. Pokračovaním súhlasíš s ich použitím." data-en="This website uses technical cookies for proper functionality and anonymous traffic measurement. By continuing, you agree to their use.">Táto stránka používa technické cookies pre správne fungovanie a anonymné meranie návštevnosti. Pokračovaním súhlasíš s ich použitím.</span>
+      </div>
+      <div class="cookie-actions">
+        <button class="cookie-btn" type="button" data-cookie-decline data-sk="Len nevyhnutné" data-en="Necessary only">Len nevyhnutné</button>
+        <button class="cookie-btn primary" type="button" data-cookie-accept data-sk="Súhlasím" data-en="I agree">Súhlasím</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      const toggle = document.querySelector('[data-theme-toggle]');
+      const root = document.documentElement;
+      let theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      root.setAttribute('data-theme', theme);
+
+      function renderTheme() {
+        toggle.innerHTML = theme === 'dark'
+          ? '<span aria-hidden="true">☀</span>'
+          : '<span aria-hidden="true">☾</span>';
+        toggle.setAttribute('aria-label', theme === 'dark' ? 'Prepnúť na svetlú tému' : 'Prepnúť na tmavú tému');
+      }
+
+      renderTheme();
+      toggle.addEventListener('click', function () {
+        theme = theme === 'dark' ? 'light' : 'dark';
+        root.setAttribute('data-theme', theme);
+        renderTheme();
+      });
+
+      const langButtons = document.querySelectorAll('[data-lang-btn]');
+      const translatable = document.querySelectorAll('[data-sk][data-en]');
+      const cookieBanner = document.getElementById('cookie-banner');
+      const cookieAccept = document.querySelector('[data-cookie-accept]');
+      const cookieDecline = document.querySelector('[data-cookie-decline]');
+      let lang = 'sk';
+
+      function renderLanguage() {
+        document.documentElement.lang = lang;
+        translatable.forEach(el => {
+          el.innerHTML = el.dataset[lang];
+        });
+        langButtons.forEach(btn => btn.classList.toggle('active', btn.dataset.langBtn === lang));
+      }
+
+      langButtons.forEach(btn => {
+        btn.addEventListener('click', function () {
+          lang = btn.dataset.langBtn;
+          renderLanguage();
+        });
+      });
+
+      function hideCookieBanner() {
+        if (cookieBanner) cookieBanner.hidden = true;
+      }
+
+      if (cookieAccept) cookieAccept.addEventListener('click', hideCookieBanner);
+      if (cookieDecline) cookieDecline.addEventListener('click', hideCookieBanner);
+
+      renderLanguage();
+    })();
+  </script>
+</body>
+</html>
