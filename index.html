@@ -3,8 +3,39 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tomáš Čačo | IT portfólio</title>
-  <meta name="description" content="Bilingválne osobné portfólio Tomáša Čača v slovenčine a angličtine." />
+  <title>Tomáš Čačo | IT Portfólio & Administrátor</title>
+  <meta name="description" content="Bilingválne osobné portfólio Tomáša Čača. IT špecialista, administrátor a odborník na IT infraštruktúru, virtualizáciu a networking." />
+  <meta name="keywords" content="Tomáš Čačo, IT špecialista, IT portfólio, administrátor, IT infraštruktúra, virtualizácia, sieťová správa, Windows Server, Linux, Proxmox, Košice" />
+  <meta name="author" content="Tomáš Čačo" />
+  <link rel="canonical" href="https://caco.space/" />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Tomáš Čačo | IT Portfólio & Administrátor" />
+  <meta property="og:description" content="IT špecialista so zameraním na správu systémov, infraštruktúru a siete. Bilingválne portfólio." />
+  <meta property="og:url" content="https://caco.space/" />
+  <meta property="og:image" content="https://caco.space/og-image.jpg" />
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:title" content="Tomáš Čačo | IT Portfólio & Administrátor" />
+  <meta property="twitter:description" content="IT špecialista so zameraním na správu systémov, infraštruktúru a siete. Bilingválne portfólio." />
+  <meta property="twitter:url" content="https://caco.space/" />
+  <meta property="twitter:image" content="https://caco.space/og-image.jpg" />
+
+  <!-- Structured Data (JSON-LD) pre SEO podľa štandardov Google -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Tomáš Čačo",
+    "jobTitle": "IT špecialista",
+    "url": "https://caco.space/",
+    "description": "IT špecialista s analytickým prístupom zameraný na IT infraštruktúru, správu systémov, networking a virtualizáciu.",
+    "knowsAbout": ["IT Infrastructure", "Systems Administration", "Networking", "Virtualization"]
+  }
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -551,6 +582,57 @@
       }
     }
 
+    .card, .skill-item, .timeline-item {
+      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    }
+    .card:hover, .skill-item:hover, .timeline-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 16px 40px -10px color-mix(in srgb, var(--color-primary) 35%, transparent);
+      border-color: var(--color-primary);
+    }
+    .js-enabled .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s cubic-bezier(0.5, 0, 0, 1), transform 0.8s cubic-bezier(0.5, 0, 0, 1);
+    }
+    .js-enabled .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .typewriter-cursor {
+      display: inline-block;
+      width: 3px;
+      background-color: var(--color-primary);
+      animation: blink 1s step-end infinite;
+      margin-left: 3px;
+      vertical-align: bottom;
+      height: 1.1em;
+    }
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+    .skill-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 48px;
+      height: 48px;
+      border-radius: var(--radius-md);
+      background: color-mix(in srgb, var(--color-primary) 12%, transparent);
+      color: var(--color-primary);
+      margin-bottom: var(--space-4);
+      transition: transform 0.3s ease;
+    }
+    .skill-item:hover .skill-icon {
+      transform: scale(1.1) rotate(3deg);
+    }
+    .skill-icon svg {
+      width: 24px;
+      height: 24px;
+      stroke-width: 2;
+    }
+
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
       * { transition: none !important; animation: none !important; }
@@ -584,11 +666,11 @@
   </header>
 
   <main id="obsah">
-    <section class="hero" id="top">
+    <section class="hero" id="top" aria-labelledby="hero-title">
       <div class="container hero-grid">
         <div>
           <div class="eyebrow" data-sk="Informačný špecialista · Creatívne portfólio" data-en="Information Specialist · Creative Portfolio">Informačný špecialista · Creatívne portfólio</div>
-          <h1 class="hero-title" data-sk="Tomáš <span>Čačo</span>" data-en="Tomáš <span>Čačo</span>">Tomáš <span>Čačo</span></h1>
+          <h1 id="hero-title" class="hero-title" data-sk="Tomáš <span>Čačo</span>" data-en="Tomáš <span>Čačo</span>">Tomáš <span>Čačo</span></h1>
           <p class="hero-text" data-sk="Ahoj, vitaj na mojom profile. Som IT špecialista s analytickým prístupom, zmyslom pre detail a prirodzenou orientáciou na riešenie problémov. Technológie ma motivujú objavovať nové koncepty, zlepšovať infraštruktúru a hľadať praktické riešenia, ktoré fungujú v reálnej prevádzke." data-en="Hello, welcome to my profile. I am an IT specialist with an analytical mindset, strong attention to detail and a natural focus on solving problems. Technology motivates me to explore new concepts, improve infrastructure and find practical solutions that work in real operations.">Ahoj, vitaj na mojom profile. Som IT špecialista s analytickým prístupom, zmyslom pre detail a prirodzenou orientáciou na riešenie problémov. Technológie ma motivujú objavovať nové koncepty, zlepšovať infraštruktúru a hľadať praktické riešenia, ktoré fungujú v reálnej prevádzke.</p>
           <div class="hero-meta">
             <span class="pill" data-sk="IT infraštruktúra" data-en="IT Infrastructure">IT infraštruktúra</span>
@@ -602,7 +684,7 @@
           <div class="hero-card-top">
             <div>
               <div class="hero-card-label" data-sk="Profil" data-en="Profile">Profil</div>
-              <h2 class="hero-name" data-sk="IT špecialista" data-en="IT Specialist">IT špecialista</h2>
+              <h2 class="hero-name"><span id="typewriter" data-sk-words='["IT Administrátor", "IT špecialista", "Proxmox & PBS Expert", "Home-lab Entuziast"]' data-en-words='["IT Administrator", "IT Specialist", "Proxmox & PBS Expert", "Home-lab Enthusiast"]'>IT špecialista</span><span class="typewriter-cursor" aria-hidden="true"></span></h2>
               <p class="hero-role" data-sk="Flexibilný, zvedavý a otvorený novým myšlienkam v technologickom svete." data-en="Flexible, curious and open to new ideas in the world of technology.">Flexibilný, zvedavý a otvorený novým myšlienkam v technologickom svete.</p>
               <div class="hero-accent-line" aria-hidden="true"></div>
             </div>
@@ -612,11 +694,11 @@
       </div>
     </section>
 
-    <section id="o-mne">
+    <section id="o-mne" aria-labelledby="o-mne-title">
       <div class="container section-grid">
         <div>
           <div class="section-kicker" data-sk="Niečo o mne" data-en="About me">Niečo o mne</div>
-          <h2 class="section-title" data-sk="Ahoj, moje meno je Tomáš" data-en="Hello, my name is Tomáš">Ahoj, moje meno je Tomáš</h2>
+          <h2 id="o-mne-title" class="section-title" data-sk="Ahoj, moje meno je Tomáš" data-en="Hello, my name is Tomáš">Ahoj, moje meno je Tomáš</h2>
         </div>
         <div>
           <p class="lede" data-sk="Moja vášeň pre technológie ma neustále motivuje objavovať nové koncepty a inovácie. Rád prepájam technické myslenie s praktickou realizáciou a dlhodobo sa venujem infraštruktúre, bezpečnosti a správe systémov." data-en="My passion for technology constantly motivates me to explore new concepts and innovations. I enjoy connecting technical thinking with practical execution and I have long focused on infrastructure, security and systems administration.">Moja vášeň pre technológie ma neustále motivuje objavovať nové koncepty a inovácie. Rád prepájam technické myslenie s praktickou realizáciou a dlhodobo sa venujem infraštruktúre, bezpečnosti a správe systémov.</p>
@@ -634,11 +716,11 @@
       </div>
     </section>
 
-    <section id="vzdelanie">
+    <section id="vzdelanie" aria-labelledby="vzdelanie-title">
       <div class="container section-grid">
         <div>
           <div class="section-kicker" data-sk="Odborné vzdelanie" data-en="Education">Odborné vzdelanie</div>
-          <h2 class="section-title" data-sk="Vzdelanie" data-en="Education">Vzdelanie</h2>
+          <h2 id="vzdelanie-title" class="section-title" data-sk="Vzdelanie" data-en="Education">Vzdelanie</h2>
         </div>
         <div class="timeline">
           <article class="timeline-item">
@@ -655,11 +737,11 @@
       </div>
     </section>
 
-    <section id="skusenosti">
+    <section id="skusenosti" aria-labelledby="skusenosti-title">
       <div class="container section-grid">
         <div>
           <div class="section-kicker" data-sk="Pracovné skúsenosti" data-en="Work experience">Pracovné skúsenosti</div>
-          <h2 class="section-title" data-sk="Prax a zodpovednosť" data-en="Practice and responsibility">Prax a zodpovednosť</h2>
+          <h2 id="skusenosti-title" class="section-title" data-sk="Prax a zodpovednosť" data-en="Practice and responsibility">Prax a zodpovednosť</h2>
         </div>
         <div class="timeline">
           <article class="timeline-item">
@@ -679,51 +761,60 @@
           </article>
           <article class="timeline-item">
             <span class="timeline-date">04 / 2023 — súčasnosť</span>
-            <h3 class="timeline-title" data-sk="Solvio s.r.o. — Konateľ" data-en="Solvio s.r.o. — Managing Director">Solvio s.r.o. — Konateľ</h3>
+            <h3 class="timeline-title" data-sk="solvio s.r.o. — Konateľ" data-en="solvio s.r.o. — Managing Director">solvio s.r.o. — Konateľ</h3>
             <p class="timeline-copy" data-sk="Vedenie spoločnosti, rozhodovanie o technologickom smerovaní a dohľad nad realizáciou IT riešení a prevádzkových aktivít." data-en="Leading the company, making decisions about technological direction and overseeing the delivery of IT solutions and operational activities.">Vedenie spoločnosti, rozhodovanie o technologickom smerovaní a dohľad nad realizáciou IT riešení a prevádzkových aktivít.</p>
           </article>
         </div>
       </div>
     </section>
 
-    <section id="znalosti">
+    <section id="znalosti" aria-labelledby="znalosti-title">
       <div class="container section-grid">
         <div>
           <div class="section-kicker" data-sk="Odborné znalosti" data-en="Professional skills">Odborné znalosti</div>
-          <h2 class="section-title" data-sk="Technológie a správa" data-en="Technologies and administration">Technológie a správa</h2>
+          <h2 id="znalosti-title" class="section-title" data-sk="Technológie a správa" data-en="Technologies and administration">Technológie a správa</h2>
         </div>
         <div>
-          <p class="lede" data-sk="Zameriavam sa na správu systémov, virtualizáciu, sieťovú infraštruktúru a administráciu cloudových aj on‑prem riešení." data-en="I focus on systems administration, virtualization, network infrastructure and administration of both cloud and on-prem solutions.">Zameriavam sa na správu systémov, virtualizáciu, sieťovú infraštruktúru a administráciu cloudových aj on‑prem riešení.</p>
+          <p class="lede" data-sk="Mám široký záber v IT svete. Venujem sa komplexnej správe serverov a klientskych staníc, experimentom a integráciám v rámci vlastného home-labu, a rovnako aj nasadeniu GenAI a LLM pre zefektívnenie procesov." data-en="I have a broad scope in the IT world. I focus on comprehensive administration of servers and client workstations, experiments and integrations within my home-lab, as well as deploying GenAI and LLMs to streamline processes.">Mám široký záber v IT svete. Venujem sa komplexnej správe serverov a klientskych staníc, experimentom a integráciám v rámci vlastného home-labu, a rovnako aj nasadeniu GenAI a LLM pre zefektívnenie procesov.</p>
           <div class="skill-grid">
             <article class="skill-item">
-              <strong>Windows</strong>
-              <p data-sk="Windows Server administrácia, Active Directory a správa pracovných staníc." data-en="Windows Server administration, Active Directory and workstation management.">Windows Server administrácia, Active Directory a správa pracovných staníc.</p>
+              <div class="skill-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01" /></svg></div>
+              <strong data-sk="Infraštruktúra & OS" data-en="Infrastructure & OS">Infraštruktúra & OS</strong>
+              <p data-sk="Virtualizácia cez Proxmox, nasadenie Proxmox Backup Server a komplexná správa pre Windows / Linux Server, Debian a macOS." data-en="Virtualization via Proxmox, deployment of Proxmox Backup Server and comprehensive administration for Windows / Linux Server, Debian and macOS.">Virtualizácia cez Proxmox, nasadenie Proxmox Backup Server a komplexná správa pre Windows / Linux Server, Debian a macOS.</p>
             </article>
             <article class="skill-item">
-              <strong>Linux</strong>
-              <p data-sk="Prevádzka a správa linuxových systémov v produkčnom aj servisnom nasadení." data-en="Operation and administration of Linux systems in production and service environments.">Prevádzka a správa linuxových systémov v produkčnom aj servisnom nasadení.</p>
+              <div class="skill-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg></div>
+              <strong data-sk="Siete & Bezpečnosť" data-en="Networking & Security">Siete & Bezpečnosť</strong>
+              <p data-sk="Návrh sietí (Unifi), integrácia Synology, správa DNS (Cloudflare) a podniková úroveň ochrany vďaka ESET Protect." data-en="Network design (Unifi), Synology integration, DNS management (Cloudflare) and enterprise-level protection with ESET Protect.">Návrh sietí (Unifi), integrácia Synology, správa DNS (Cloudflare) a podniková úroveň ochrany vďaka ESET Protect.</p>
             </article>
             <article class="skill-item">
-              <strong data-sk="Virtualizácia" data-en="Virtualization">Virtualizácia</strong>
-              <p data-sk="Proxmox administrácia, konsolidácia služieb a efektívne využitie infraštruktúry." data-en="Proxmox administration, service consolidation and efficient infrastructure usage.">Proxmox administrácia, konsolidácia služieb a efektívne využitie infraštruktúry.</p>
+              <div class="skill-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" /></svg></div>
+              <strong data-sk="Home-lab & IoT" data-en="Home-lab & IoT">Home-lab & IoT</strong>
+              <p data-sk="Som nadšený home-lab entuziast. Prevádzkujem Home Assistant a do smarthome začleňujem protokoly ako Zigbee2mqtt, Matter a Thread." data-en="I am an avid home-lab enthusiast. I run Home Assistant and integrate smart home protocols like Zigbee2mqtt, Matter, and Thread.">Som nadšený home-lab entuziast. Prevádzkujem Home Assistant a do smarthome začleňujem protokoly ako Zigbee2mqtt, Matter a Thread.</p>
             </article>
             <article class="skill-item">
-              <strong>Networking</strong>
-              <p data-sk="Unifi Firewall/NVR, návrh segmentácie a správa sieťových prvkov." data-en="Unifi Firewall/NVR, segmentation design and network device administration.">Unifi Firewall/NVR, návrh segmentácie a správa sieťových prvkov.</p>
+              <div class="skill-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg></div>
+              <strong data-sk="AI & Moderný prístup" data-en="AI & Modern approach">AI & Moderný prístup</strong>
+              <p data-sk="Aktívne využívam GenAI a LLM modely pre rýchlejšiu analýzu problémov, návrh IT riešení a automatizáciu." data-en="I actively use GenAI and LLM models for faster problem analysis, IT solution design, and automation.">Aktívne využívam GenAI a LLM modely pre rýchlejšiu analýzu problémov, návrh IT riešení a automatizáciu.</p>
             </article>
           </div>
 
           <div class="expertise-cloud" aria-label="Zoznam odborností">
-            <span>ESET Protect Administrátor</span>
-            <span>Proxmox Administrátor</span>
-            <span>Synology Administrátor</span>
-            <span>WordPress Administrátor</span>
-            <span>Unifi Firewall/NVR Administrátor</span>
-            <span>Microsoft Office 365 Administrátor</span>
-            <span>Microsoft Azure Administrátor</span>
-            <span>Windows Server Administrátor</span>
-            <span>Active Directory Administrátor</span>
-            <span>Google Analytics Administrátor</span>
+            <span>Windows Server</span>
+            <span>Linux Server</span>
+            <span>Proxmox & PBS</span>
+            <span>Synology</span>
+            <span>ESET Protect</span>
+            <span>Debian</span>
+            <span>macOS</span>
+            <span>Unifi</span>
+            <span>Cloudflare</span>
+            <span>Home Assistant</span>
+            <span>Zigbee2mqtt</span>
+            <span>Matter / Thread</span>
+            <span>GenAI & LLM</span>
+            <span>Active Directory</span>
+            <span>Microsoft 365</span>
           </div>
         </div>
       </div>
@@ -800,6 +891,70 @@
 
       if (cookieAccept) cookieAccept.addEventListener('click', hideCookieBanner);
       if (cookieDecline) cookieDecline.addEventListener('click', hideCookieBanner);
+
+      document.documentElement.classList.add('js-enabled');
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1 });
+
+      const revealElements = document.querySelectorAll('.card, .timeline-item, .skill-item, .section-title, .hero-card');
+      revealElements.forEach((el, index) => {
+        el.classList.add('reveal');
+        el.style.transitionDelay = `${(index % 3) * 0.15}s`;
+        observer.observe(el);
+      });
+
+      const twEl = document.getElementById('typewriter');
+      if (twEl) {
+        let texts = [];
+        let curStr = 0;
+        let charPos = 0;
+        let isDeleting = false;
+
+        function renderTypewriterLanguage() {
+          try {
+            const dataAttr = lang === 'sk' ? 'data-sk-words' : 'data-en-words';
+            texts = JSON.parse(twEl.getAttribute(dataAttr));
+            if (!texts[curStr]) curStr = 0;
+          } catch(e) { texts = ["IT špecialista"]; }
+        }
+        
+        renderTypewriterLanguage();
+        
+        function type() {
+          const currentText = texts[curStr];
+          if (isDeleting) {
+            twEl.textContent = currentText.substring(0, charPos - 1);
+            charPos--;
+          } else {
+            twEl.textContent = currentText.substring(0, charPos + 1);
+            charPos++;
+          }
+
+          let speed = isDeleting ? 40 : 100;
+
+          if (!isDeleting && charPos === currentText.length) {
+            speed = 3000;
+            isDeleting = true;
+          } else if (isDeleting && charPos === 0) {
+            isDeleting = false;
+            curStr = (curStr + 1) % texts.length;
+            speed = 500;
+          }
+          setTimeout(type, speed);
+        }
+        setTimeout(type, 1000);
+
+        langButtons.forEach(btn => {
+          btn.addEventListener('click', () => { setTimeout(renderTypewriterLanguage, 50); });
+        });
+      }
 
       renderLanguage();
     })();
