@@ -65,6 +65,18 @@ function navigationAction(href, label, { hint = '', direction = 'right', classNa
   return `<a class="navigation-action${className ? ` ${className}` : ''}" href="${esc(href)}"><span class="navigation-action-copy"><strong>${esc(label)}</strong>${hint ? `<small>${esc(hint)}</small>` : ''}</span><span class="navigation-action-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="${arrows[direction]}"/></svg></span></a>`;
 }
 
+function orbitMark() {
+  return `<svg class="game-mark" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><circle cx="24" cy="24" r="15"/><circle cx="35" cy="13" r="3"/><circle cx="24" cy="24" r="5"/></svg>`;
+}
+
+function towerMark() {
+  return `<svg class="game-mark" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 38h30M13 29h22M18 20h12M23 11h2"/></svg>`;
+}
+
+function gameCard(game, category, mark, href) {
+  return `<article class="game-card"><div class="game-card-copy">${mark}<span class="tag">${esc(category)}</span><h3>${esc(game.title)}</h3><p>${esc(game.text)}</p></div>${navigationAction(href, game.action, { direction: 'external' })}</article>`;
+}
+
 export function renderHome(lang) {
   const page = byId.home; const c = page.content[lang];
   const heading = (id, kicker, title) => `<div class="landing-heading"><p class="eyebrow">${kicker}</p><h2 id="${id}">${title}</h2></div>`;
@@ -72,7 +84,7 @@ export function renderHome(lang) {
   <section class="hero" aria-labelledby="hero-title"><div class="hero-copy"><p class="eyebrow"><span class="dot"></span> ${c.heroKicker}</p><h1 id="hero-title" class="hero-name">Tomáš<br><em>Čačo</em></h1><div class="hero-bottom"><p>${c.heroIntro}</p><a class="round-link" href="#o-mne" aria-label="${c.nav[0]}"><span aria-hidden="true">↓</span></a></div><p class="type-line" data-type-line><span>${lang === 'sk' ? 'SYSTÉMY / SIETE / DOKUMENTÁCIA' : 'SYSTEMS / NETWORKS / DOCUMENTATION'}</span><span class="type-clone" aria-hidden="true"></span></p></div>${comet(lang)}</section>
   <section aria-labelledby="title-o-mne" id="o-mne" class="landing-section about reveal">${heading('title-o-mne', c.aboutKicker, c.aboutTitle)}<div class="landing-copy"><p class="large">${c.aboutLead}</p><p>${c.aboutText}</p>${navigationAction(byId.cv.paths[lang], c.cvAction, { hint: c.cvHint })}</div></section>
   <section aria-labelledby="title-prax" id="prax" class="landing-section practice-teaser reveal">${heading('title-prax', c.practiceKicker, c.practiceTitle)}<div class="landing-copy"><p class="large">${c.practiceLead}</p><p>${c.practiceText}</p>${navigationAction(byId.practice.paths[lang], c.practiceAction)}</div></section>
-  <section aria-labelledby="title-projekty" id="projekty" class="landing-section projects reveal">${heading('title-projekty', c.projectKicker, c.projectTitle)}<div class="landing-copy"><p class="large">${c.projectAside}</p></div><div class="project-grid"><article class="project game"><a class="project-art project-game-link" href="https://orbit-shifter.caco.space" aria-label="${c.gamePlayLabel}"><span aria-hidden="true">PLAY<span class="play-triangle">▶</span></span></a><div class="project-info"><span class="tag">${lang === 'sk' ? 'HRA / VLASTNÝ PROJEKT' : 'GAME / PERSONAL PROJECT'}</span><h3>${c.gameTitle}</h3><p>${c.gameText}</p>${navigationAction('https://orbit-shifter.caco.space', c.gamePlayLabel, { hint: c.gameStatus, direction: 'external' })}</div></article>${homeLabCard(lang)}</div></section>
+  <section aria-labelledby="title-projekty" id="projekty" class="landing-section projects reveal">${heading('title-projekty', c.projectKicker, c.projectTitle)}<div class="landing-copy"><p class="large">${c.projectAside}</p></div><div class="project-grid"><article class="project game"><a class="project-art project-game-link" href="https://orbit-shifter.caco.space" aria-label="${c.games.orbit.action}"><span aria-hidden="true">PLAY<span class="play-triangle">▶</span></span></a><div class="game-list">${gameCard(c.games.orbit, c.games.category, orbitMark(), 'https://orbit-shifter.caco.space')}${gameCard(c.games.tower, c.games.category, towerMark(), 'https://bastion-grid.caco.space')}</div></article>${homeLabCard(lang)}</div></section>
   <section aria-labelledby="title-solvio" id="solvio" class="landing-section company reveal">${heading('title-solvio', c.solvioKicker, c.solvioTitle)}<div class="landing-copy"><p class="large">${c.solvioLead}</p><p>${c.solvioText}</p>${navigationAction('https://solvio.sk/', c.solvioAction, { direction: 'external' })}</div></section>
   <section aria-labelledby="title-objektiv" id="objektiv" class="landing-section lens reveal">${heading('title-objektiv', c.lensKicker, c.lensTitle)}<div class="landing-copy"><p class="large">${c.lensText}</p><p class="lens-status">${c.lensAction}</p></div></section>
   </main>${footer(lang, c)}</body></html>`;

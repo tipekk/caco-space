@@ -21,7 +21,11 @@ export const pages = [
         practiceText: 'Detailná stránka ukazuje spôsob práce od orientácie v službách cez prístupy a obnovu až po riadenú zmenu a dokumentáciu.',
         practiceAction: 'Pozrieť moju prax',
         projectKicker: '03 / VLASTNÁ TVORBA', projectTitle: 'Vlastné projekty.', projectAside: 'Miesto pre malé experimenty aj väčšie nápady.',
-        gameTitle: 'Orbit Shifter', gameText: 'Vlastná hra je dostupná priamo online.', gamePlayLabel: 'Otvoriť hru Orbit Shifter', gameStatus: 'Dostupné online',
+        games: {
+          category: 'HRA / VLASTNÝ PROJEKT',
+          orbit: { title: 'Orbit Shifter', text: 'Meníš orbitu. Držíš smer.', action: 'Otvoriť hru' },
+          tower: { title: 'Bastion Grid', text: 'Stavaj vyššie. Nestrácaj rovnováhu.', action: 'Otvoriť hru' }
+        },
         homeLabTag: 'HOMELAB / DOMÁCA AUTOMATIZÁCIA', homeLabAction: 'Pozrieť HomeLab', homeLabImageAlt: 'Domáci rack s prepojenými zariadeniami.', labTitle: 'HomeLab', labText: 'Home Assistant, približne 60 Zigbee zariadení a prepojenie s Apple HomeKit aj Google Home. Osobný projekt, v ktorom prepájam automatizáciu, integrácie a správu domácej infraštruktúry.',
         preparing: 'Pripravujem',
         solvioKicker: '04 / FIRMA', solvioTitle: 'Solvio.', solvioLead: 'Firemné IT riešenia majú vlastný priestor. Volá sa Solvio.', solvioText: 'Viac o službách a možnostiach spolupráce nájdete na firemnom webe.', solvioAction: 'Spoznať Solvio',
@@ -44,7 +48,11 @@ export const pages = [
         practiceText: 'The detailed page follows the work from understanding services through access and recovery to controlled change and documentation.',
         practiceAction: 'See my practice',
         projectKicker: '03 / PERSONAL WORK', projectTitle: 'Personal projects.', projectAside: 'A space for small experiments and larger ideas.',
-        gameTitle: 'Orbit Shifter', gameText: 'A personal game available directly online.', gamePlayLabel: 'Open Orbit Shifter', gameStatus: 'Available online',
+        games: {
+          category: 'GAME / PERSONAL PROJECT',
+          orbit: { title: 'Orbit Shifter', text: 'Shift your orbit. Hold your course.', action: 'Open game' },
+          tower: { title: 'Bastion Grid', text: 'Build higher. Keep your balance.', action: 'Open game' }
+        },
         homeLabTag: 'HOMELAB / HOME AUTOMATION', homeLabAction: 'View HomeLab', homeLabImageAlt: 'A home rack with connected devices.', labTitle: 'HomeLab', labText: 'Home Assistant, around 60 Zigbee devices and connections to Apple HomeKit and Google Home. A personal project combining automation, integrations and home infrastructure administration.',
         preparing: 'In progress',
         solvioKicker: '04 / COMPANY', solvioTitle: 'Solvio.', solvioLead: 'Business IT solutions have their own space. It is called Solvio.', solvioText: 'Find services and collaboration options on the company website.', solvioAction: 'Meet Solvio',
