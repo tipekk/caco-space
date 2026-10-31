@@ -1,10 +1,4 @@
-/* Landing: one editorial grid using the shared semantic type scale. */
-.landing .hero { padding-block: 4rem; }
-.landing .hero-name { font-size: var(--type-display); line-height: 1; letter-spacing: -.045em; }
-.landing .hero-bottom { margin-top: 2rem; }
-.landing .hero .eyebrow,
-.landing .hero .type-line { font-size: var(--type-meta); line-height: 1.5; }
-.landing .hero .type-line { margin-top: 1.5rem; }
+/* Landing: one editorial grid, type scale and navigation treatment. */
 .landing .landing-section {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
@@ -17,6 +11,7 @@
   background: transparent;
 }
 .landing .landing-section > * { min-width: 0; }
+.landing .top nav { font-size: .875rem; }
 .landing .about {
   margin-inline: 0;
   padding-inline: 5%;
@@ -42,19 +37,19 @@
 .landing .company .navigation-action-copy small { color: var(--theme-about-ink); }
 .landing .company .navigation-action,
 .landing .company .navigation-action-icon { border-color: var(--theme-about-ink); }
-.landing .landing-heading .eyebrow { margin: 0 0 1.5rem; font-size: var(--type-meta); line-height: 1.5; letter-spacing: .09em; color: var(--muted); }
-.landing .landing-heading h2 { max-width: 15ch; margin: 0; font-size: var(--type-section); line-height: 1.05; letter-spacing: -.045em; font-weight: 300; }
+.landing .landing-heading .eyebrow { margin: 0 0 1.5rem; font-size: .875rem; line-height: 1.5; letter-spacing: .09em; color: var(--muted); }
+.landing .landing-heading h2 { max-width: 15ch; margin: 0; font-size: clamp(2.25rem, 4.2vw, 4.5rem); line-height: 1.05; letter-spacing: -.045em; font-weight: 300; }
 .landing .landing-copy { padding: 2.8125rem 0 0; }
-.landing .landing-copy > p { max-width: 60ch; margin: 0; color: var(--muted); font-size: var(--type-body); line-height: 1.6; font-weight: 400; }
-.landing .landing-copy > .large { max-width: 38ch; color: var(--ink); font-size: var(--type-lead); line-height: 1.6; font-weight: 400; letter-spacing: -.015em; }
+.landing .landing-copy > p { max-width: 60ch; margin: 0; color: var(--muted); font-size: 1rem; line-height: 1.6; font-weight: 400; }
+.landing .landing-copy > .large { max-width: 38ch; color: var(--ink); font-size: clamp(1.25rem, 1.7vw, 1.625rem); line-height: 1.5; font-weight: 300; letter-spacing: -.015em; }
 .landing .landing-copy > p + p { margin-top: 1.5rem; }
 .landing .projects .project-grid { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: stretch; gap: 3rem; }
 .landing .project { display: flex; flex-direction: column; min-width: 0; }
 .landing .project-art { height: auto; aspect-ratio: 1.6; }
 .landing .project-info { display: flex; flex-direction: column; flex: 1; padding: 1.5rem 0 0; }
-.landing .project-info .tag { font-size: var(--type-meta); line-height: 1.5; letter-spacing: .07em; color: var(--muted); }
-.landing .project-info h3 { margin: 1rem 0; font-size: var(--type-item); line-height: 1.15; letter-spacing: -.04em; font-weight: 300; }
-.landing .project-info > p { max-width: 60ch; margin: 0 0 2rem; color: var(--muted); font-size: var(--type-body); line-height: 1.6; font-weight: 400; }
+.landing .project-info .tag { font-size: .875rem; line-height: 1.5; letter-spacing: .07em; color: var(--muted); }
+.landing .project-info h3 { margin: 1rem 0; font-size: 2rem; line-height: 1.15; }
+.landing .project-info > p { max-width: 60ch; margin: 0 0 2rem; color: var(--muted); font-size: 1rem; line-height: 1.6; font-weight: 400; }
 .landing .project-info .navigation-action { margin-top: auto; }
 .landing .game { gap: 1.5rem; border-bottom: 0; }
 .landing .game-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.5rem; }
@@ -62,22 +57,32 @@
 .landing .game-card-copy { flex: 1; }
 .landing .game-card .game-mark { display: block; width: 3rem; height: 3rem; margin: 0 0 1.25rem; fill: none; stroke: var(--orange); stroke-width: 1.5; stroke-linecap: square; stroke-linejoin: miter; }
 .landing .game-card .game-mark circle:last-child { fill: var(--orange); stroke: none; }
-.landing .game-card .tag { display: block; font-size: var(--type-meta); line-height: 1.5; letter-spacing: .07em; color: var(--muted); }
-.landing .game-card h3 { margin: .75rem 0; font-size: var(--type-item); line-height: 1.15; font-weight: 300; letter-spacing: -.04em; }
-.landing .game-card p { margin: 0 0 1.5rem; color: var(--muted); font-size: var(--type-body); line-height: 1.5; }
+.landing .game-card .tag { display: block; font-size: .6875rem; line-height: 1.5; letter-spacing: .07em; color: var(--muted); }
+.landing .game-card h3 { margin: .75rem 0; font-size: clamp(1.5rem, 2.1vw, 2rem); line-height: 1.15; }
+.landing .game-card p { margin: 0 0 1.5rem; color: var(--muted); font-size: .9375rem; line-height: 1.5; }
 .landing .game-card .navigation-action { min-height: 5.5rem; margin-top: auto; }
-.landing .hero-bottom p { max-width: 38ch; font-size: var(--type-lead); line-height: 1.6; font-weight: 400; }
+.landing .navigation-action { display: grid; grid-template-columns: minmax(0, 1fr) 3rem; align-items: center; gap: 1.5rem; width: 100%; min-height: 5.5rem; margin-top: 2rem; padding: 1rem 0; border-block: 1px solid currentColor; color: inherit; font-weight: 400; }
+.landing .navigation-action-copy { min-width: 0; }
+.landing .navigation-action-copy strong { display: block; font-size: 1.125rem; line-height: 1.4; font-weight: 400; overflow-wrap: anywhere; }
+.landing .navigation-action-copy small { display: block; margin-top: .5rem; color: var(--muted); font-size: .875rem; line-height: 1.5; }
+.landing .navigation-action-icon { display: grid; place-items: center; width: 3rem; height: 3rem; border: 1px solid currentColor; color: inherit; }
+.landing .navigation-action-icon svg { width: 1.5rem; height: 1.5rem; fill: none; stroke: var(--accent-text); stroke-width: 1.5; }
+.landing .navigation-action:hover .navigation-action-icon, .landing .navigation-action:focus-visible .navigation-action-icon { background: var(--orange); }
+.landing .navigation-action:hover .navigation-action-icon svg, .landing .navigation-action:focus-visible .navigation-action-icon svg { stroke: var(--on-accent); }
+.landing .hero-bottom p { font-size: 1rem; line-height: 1.6; }
 @media (max-width: 900px) {
   .landing .landing-section { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 2rem; padding-block: 4rem; }
   .landing .projects .project-grid { gap: 2rem; }
 }
 @media (max-width: 640px) {
-  .landing .hero { padding-block: 3rem; }
   .landing .landing-section { grid-template-columns: minmax(0, 1fr); margin-inline: 6%; padding-block: 3rem; gap: 2rem; }
   .landing .about { margin-inline: 0; padding-inline: 6%; }
   .landing .company { margin-inline: 0; padding-inline: 6%; }
-  .landing .landing-heading h2 { max-width: 17ch; }
+  .landing .landing-heading h2 { max-width: 17ch; font-size: clamp(2.25rem, 9vw, 3.25rem); }
   .landing .landing-copy { padding: 0; }
   .landing .projects .project-grid { grid-template-columns: minmax(0, 1fr); gap: 3rem; }
   .landing .game-list { grid-template-columns: minmax(0, 1fr); gap: 2rem; }
+}
+@media (max-width: 375px) {
+  .landing .top nav a { font-size: .875rem; }
 }
