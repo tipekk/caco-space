@@ -61,6 +61,10 @@ for (const { page, lang, html } of rendered) {
     if (!target.startsWith('/') && !target.startsWith('#')) continue;
     const [route, anchor] = target.split('#');
     if (staticFiles.has(route)) continue;
+    if (route === '/') {
+      if (anchor && anchor !== 'sukromie') throw new Error(`Neplatná kotva ${target} v ${page.id}.${lang}`);
+      continue;
+    }
     const destination = routes.get(route || page.paths[lang]);
     if (!destination) throw new Error(`Neplatný interný odkaz ${target} v ${page.id}.${lang}`);
     if (anchor && ![...destination.page.anchors, 'obsah'].includes(decodeURIComponent(anchor))) throw new Error(`Neplatná kotva ${target} v ${page.id}.${lang}`);
