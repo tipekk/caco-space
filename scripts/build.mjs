@@ -39,8 +39,7 @@ if (new Set(allPaths).size !== allPaths.length) throw new Error('Duplicitná vý
 
 await rm('dist', { recursive: true, force: true });
 await mkdir('dist', { recursive: true });
-const selectorHtml = renderSelector();
-await writeFile('dist/index.html', selectorHtml);
+await writeFile('dist/index.html', renderSelector());
 const rendered = [];
 for (const page of pages) for (const lang of ['sk', 'en']) {
   const output = `dist${page.paths[lang]}index.html`;
@@ -55,7 +54,6 @@ for (const page of pages) for (const lang of ['sk', 'en']) {
   rendered.push({ page, lang, html });
 }
 const routes = new Map(rendered.map(({ page, lang }) => [page.paths[lang], { page, lang }]));
-routes.set('/', { page: { anchors: [...selectorHtml.matchAll(/\sid="([^"]+)"/g)].map(match => match[1]) } });
 const staticFiles = new Set(['/style.css', '/responsive.css', '/theme.css', '/theme.js', '/landing.css']);
 for (const { page, lang, html } of rendered) {
   for (const href of html.matchAll(/\shref="([^"]+)"/g)) {
