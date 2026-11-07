@@ -56,10 +56,53 @@
 .landing .project-info h3 { margin: 1rem 0; font-size: var(--type-item); line-height: 1.15; letter-spacing: -.04em; font-weight: 300; }
 .landing .project-info > p { max-width: 60ch; margin: 0 0 2rem; color: var(--muted); font-size: var(--type-body); line-height: 1.6; font-weight: 400; }
 .landing .project-info .navigation-action { margin-top: auto; }
+.games-page-hero { display: grid; grid-template-columns: minmax(15rem, .72fr) minmax(0, 1.45fr); gap: clamp(3rem, 9vw, 10rem); align-items: stretch; padding: clamp(4rem, 8vw, 8rem) 5% clamp(4rem, 7vw, 7rem); border-bottom: 1px solid var(--line); }
+.games-page-hero > div { display: flex; flex-direction: column; justify-content: space-between; gap: 4rem; }
+.games-page-hero .eyebrow { margin: 0; }
+.games-page-hero .large { max-width: 32rem; color: var(--muted); }
+.games-page-hero h1 { position: static; width: auto; max-width: 10ch; justify-self: end; font-size: var(--type-page); }
+.games-catalog { padding: 2rem 5% 6rem; }
+.game-showcase-list { display: grid; width: 100%; }
+.games-page .game-entry { display: grid; grid-template-columns: minmax(0, 1fr) minmax(20rem, .9fr); gap: clamp(2rem, 4vw, 4rem); align-items: center; padding-block: 3rem; border-bottom: 1px solid var(--line); }
+.games-page .game-entry--reverse { grid-template-columns: minmax(20rem, .9fr) minmax(0, 1fr); }
+.games-page .game-entry--reverse .game-visual { grid-column: 2; grid-row: 1; }
+.games-page .game-entry--reverse .game-entry-copy { grid-column: 1; grid-row: 1; }
+.games-page .game-entry-copy { min-width: 0; }
+.games-page .game-entry-copy .tag { display: block; color: var(--muted); }
+.games-page .game-entry-copy h2 { margin: 1rem 0; font-size: var(--type-item); line-height: 1.15; letter-spacing: -.04em; font-weight: 300; }
+.games-page .game-entry-copy > p { max-width: 36rem; color: var(--muted); font-size: var(--type-body); line-height: 1.6; }
+.games-page .game-visual { position: relative; min-width: 0; aspect-ratio: 1.6; overflow: hidden; }
+.games-page .game-visual svg { display: block; width: 100%; height: 100%; }
+.games-page .game-visual--orbit { background: var(--orange); color: var(--on-accent); }
+.games-page .orbit-ring { fill: none; stroke: currentColor; stroke-width: 1.5; opacity: .7; }
+.games-page .orbit-ring--outer { stroke-dasharray: 6 15; }
+.games-page .orbit-course { fill: none; stroke: currentColor; stroke-width: 2; }
+.games-page .orbit-core { fill: var(--on-accent); }
+.games-page .orbit-player { fill: var(--paper); stroke: var(--on-accent); stroke-width: 2; }
+.games-page .game-visual--bastion { background: var(--blue); color: var(--on-accent); }
+.games-page .bastion-grid { fill: none; stroke: currentColor; stroke-width: 1; opacity: .35; }
+.games-page .bastion-tower { fill: none; stroke: currentColor; stroke-width: 10; stroke-linejoin: miter; }
+.games-page .bastion-core { fill: var(--orange); stroke: currentColor; stroke-width: 2; }
+.games-page .game-wordmark { position: absolute; z-index: 1; font-weight: 300; line-height: .82; letter-spacing: -.07em; }
+.games-page .game-wordmark--orbit, .games-page .game-wordmark--bastion { inset: 1.5rem auto auto 1.5rem; font-size: clamp(2.5rem, 6vw, 6.5rem); }
+.games-page .game-play-symbol { position: absolute; right: 1.5rem; bottom: 1.5rem; font-size: clamp(1.5rem, 3vw, 3rem); }
+.games-page .game-visual--glowzu { background: var(--game-night); color: var(--game-glow); }
+.games-page .glowzu-mist { fill: var(--blue); opacity: .38; }
+.games-page .glowzu-mist--back { opacity: .2; }
+.games-page .glowzu-hill { fill: var(--game-night); stroke: var(--blue); stroke-width: 1; }
+.games-page .glowzu-flower { fill: none; stroke: var(--game-glow); stroke-width: 2; opacity: .75; }
+.games-page .glowzu-light { fill: var(--game-glow); }
+.games-page .glowzu-light--halo { opacity: .12; }
+.games-page .glowzu-speck { fill: var(--game-glow); opacity: .65; }
+.games-page .game-wordmark--glowzu { inset: 1.5rem auto auto 1.5rem; color: var(--game-glow); font-size: clamp(2.75rem, 7vw, 7.5rem); letter-spacing: -.055em; }
+.games-page .game-visual-note { position: absolute; right: 1.5rem; bottom: 1.5rem; color: var(--game-glow); font-size: var(--type-micro); letter-spacing: .13em; }
+.games-page-back { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.5rem; padding: 0 5% 6rem; }
+.games-page-back .navigation-action { margin-top: 0; }
 .landing .hero-bottom p { max-width: 38ch; font-size: var(--type-lead); line-height: 1.6; font-weight: 400; }
 @media (max-width: 900px) {
   .landing .landing-section { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 2rem; padding-block: 4rem; }
   .landing .projects .project-grid { gap: 2rem; }
+  .games-page .game-entry, .games-page .game-entry--reverse { grid-template-columns: minmax(0, 1fr) minmax(16rem, .8fr); gap: 2rem; }
 }
 @media (max-width: 640px) {
   .landing .hero { padding-block: 3rem; }
@@ -69,4 +112,14 @@
   .landing .landing-heading h2 { max-width: 17ch; }
   .landing .landing-copy { padding: 0; }
   .landing .projects .project-grid { grid-template-columns: minmax(0, 1fr); gap: 3rem; }
+  .games-page-hero { grid-template-columns: minmax(0, 1fr); gap: 2.5rem; padding: 3.5rem 6%; }
+  .games-page-hero > div { gap: 2rem; }
+  .games-page-hero h1 { justify-self: start; }
+  .games-catalog { padding: 1.5rem 6% 4rem; }
+  .games-page .game-entry, .games-page .game-entry--reverse { grid-template-columns: minmax(0, 1fr); gap: 1.5rem; padding-block: 2rem; }
+  .games-page .game-entry--reverse .game-visual, .games-page .game-entry--reverse .game-entry-copy { grid-column: 1; }
+  .games-page .game-entry--reverse .game-visual { grid-row: 1; }
+  .games-page .game-entry--reverse .game-entry-copy { grid-row: 2; }
+  .games-page .game-entry-copy .navigation-action { margin-top: 1.5rem; }
+  .games-page-back { grid-template-columns: minmax(0, 1fr); padding: 0 6% 4rem; }
 }

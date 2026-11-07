@@ -17,6 +17,7 @@
 - `/sk/` ↔ `/en/`
 - `/sk/prax/` ↔ `/en/practice/`
 - `/sk/cv/` ↔ `/en/cv/`
+- `/sk/hry/` ↔ `/en/games/`
 - `/sk/homelab/` ↔ `/en/homelab/`
 - `/sk/foto-a-dron/` ↔ `/en/photo-and-drone/`
 

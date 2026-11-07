@@ -20,6 +20,8 @@
   --rack-cavity: #00000014;
   --status-good: #3f7d4f;
   --status-bad: #b74b00;
+  --game-night: #080b18;
+  --game-glow: #d9fff2;
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {

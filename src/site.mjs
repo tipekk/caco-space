@@ -21,7 +21,7 @@ export const pages = [
         practiceText: 'Detailná stránka ukazuje spôsob práce od orientácie v službách cez prístupy a obnovu až po riadenú zmenu a dokumentáciu.',
         practiceAction: 'Pozrieť moju prax',
         projectKicker: '03 / VLASTNÁ TVORBA', projectTitle: 'Vlastné projekty.', projectAside: 'Miesto pre malé experimenty aj väčšie nápady.',
-        gameTitle: 'Orbit Shifter', gameText: 'Vlastná hra je dostupná priamo online.', gamePlayLabel: 'Otvoriť hru Orbit Shifter', gameStatus: 'Dostupné online',
+        gamesCardTag: 'HRY / VLASTNÁ TVORBA', gamesCardTitle: 'Hry', gamesCardText: 'Orbit Shifter, Bastion Grid a Glowzu. Tri malé svety s rozdielnym tempom a pravidlami.', gamesIndexAction: 'Pozrieť všetky hry', gamesIndexHint: 'Samostatná herná sekcia',
         homeLabTag: 'HOMELAB / DOMÁCA AUTOMATIZÁCIA', homeLabAction: 'Pozrieť HomeLab', homeLabImageAlt: 'Domáci rack s prepojenými zariadeniami.', labTitle: 'HomeLab', labText: 'Home Assistant, približne 60 Zigbee zariadení a prepojenie s Apple HomeKit aj Google Home. Osobný projekt, v ktorom prepájam automatizáciu, integrácie a správu domácej infraštruktúry.',
         preparing: 'Pripravujem',
         solvioKicker: '04 / FIRMA', solvioTitle: 'Solvio.', solvioLead: 'Firemné IT riešenia majú vlastný priestor. Volá sa Solvio.', solvioText: 'Viac o službách a možnostiach spolupráce nájdete na firemnom webe.', solvioAction: 'Spoznať Solvio',
@@ -44,13 +44,40 @@ export const pages = [
         practiceText: 'The detailed page follows the work from understanding services through access and recovery to controlled change and documentation.',
         practiceAction: 'See my practice',
         projectKicker: '03 / PERSONAL WORK', projectTitle: 'Personal projects.', projectAside: 'A space for small experiments and larger ideas.',
-        gameTitle: 'Orbit Shifter', gameText: 'A personal game available directly online.', gamePlayLabel: 'Open Orbit Shifter', gameStatus: 'Available online',
+        gamesCardTag: 'GAMES / PERSONAL WORK', gamesCardTitle: 'Games', gamesCardText: 'Orbit Shifter, Bastion Grid and Glowzu. Three small worlds with different pacing and rules.', gamesIndexAction: 'View all games', gamesIndexHint: 'Dedicated games section',
         homeLabTag: 'HOMELAB / HOME AUTOMATION', homeLabAction: 'View HomeLab', homeLabImageAlt: 'A home rack with connected devices.', labTitle: 'HomeLab', labText: 'Home Assistant, around 60 Zigbee devices and connections to Apple HomeKit and Google Home. A personal project combining automation, integrations and home infrastructure administration.',
         preparing: 'In progress',
         solvioKicker: '04 / COMPANY', solvioTitle: 'Solvio.', solvioLead: 'Business IT solutions have their own space. It is called Solvio.', solvioText: 'Find services and collaboration options on the company website.', solvioAction: 'Meet Solvio',
         lensKicker: '05 / BEYOND THE SCREEN', lensTitle: 'Photo and drone.', lensText: 'This section for personal photographs and drone footage is in progress. I will add the content later.', lensAction: 'Coming soon',
         cvAction: 'View full CV', cvHint: 'Career timeline, education and areas of expertise.',
         footer: 'A personal space. Always evolving.', back: 'Back to top', skip: 'Skip to content', theme: 'Theme', system: 'System', light: 'Light', dark: 'Dark'
+      }
+    }
+  },
+  {
+    id: 'games',
+    paths: { sk: '/sk/hry/', en: '/en/games/' },
+    anchors: ['hry'],
+    content: {
+      sk: {
+        title: 'Hry — Tomáš Čačo', description: 'Vlastné online hry Orbit Shifter, Bastion Grid a Glowzu.', socialAlt: 'Abstraktná kompozícia tenkých tmavých trás, modrých geometrických plôch a jedného oranžového kruhu na krémovom podklade.',
+        nav: ['O mne', 'Prax', 'Projekty', 'Solvio', 'Foto a dron'], kicker: 'HRY / VLASTNÉ PROJEKTY', headline: 'Malé svety. Vlastné pravidlá.', intro: 'Tri rozdielne hry, každá s vlastným tempom, mechanikou a vizuálnym rukopisom.',
+        games: [
+          ['orbit', 'https://orbit-shifter.caco.space', 'HRA / VLASTNÝ PROJEKT', 'Orbit Shifter', 'Jednotlačidlová arkádová hra o presnom načasovaní. Prepínaj signál medzi orbitami, vyhýbaj sa pruhovaným bránam a udržuj násobič FLOW počas kampane s piatimi úrovňami.', 'Spustiť Orbit Shifter', 'Dostupné online'],
+          ['bastion', 'https://bastion-grid.caco.space', 'HRA / VLASTNÝ PROJEKT', 'Bastion Grid', 'Diorámová tower-defense hra z mosadze a smaltu. Stavaj veže proti hodinárskym hračkám, nechaj pružiny dobehnúť a ubráň svoju dielňu.', 'Spustiť Bastion Grid', 'Dostupné online'],
+          ['glowzu', 'https://glowzu.caco.space', 'HRA / VLASTNÝ PROJEKT', 'Glowzu', 'Veď svetlušku hmlistou krajinou, zbieraj svetielka a zábleskom rozsvecuj kvety. Postupuj cez jednotlivé oblasti a dávaj pozor, aby si neprišiel o všetky životy.', 'Spustiť Glowzu', 'Dostupné online']
+        ],
+        homeAction: 'Späť na úvod', homeHint: 'Vlastné projekty', homeLabAction: 'Pozrieť HomeLab', homeLabHint: 'Domáca automatizácia a infraštruktúra', footer: 'Osobný priestor. Neustále vo vývoji.', back: 'Späť hore', skip: 'Preskočiť na obsah', theme: 'Téma', system: 'Systém', light: 'Svetlá', dark: 'Tmavá'
+      },
+      en: {
+        title: 'Games — Tomáš Čačo', description: 'Original online games Orbit Shifter, Bastion Grid and Glowzu.', socialAlt: 'An abstract composition of thin dark routes, muted blue geometric shapes and one orange circle on a warm cream background.',
+        nav: ['About', 'Practice', 'Projects', 'Solvio', 'Photo & drone'], kicker: 'GAMES / PERSONAL PROJECTS', headline: 'Small worlds. Their own rules.', intro: 'Three different games, each with its own pace, mechanics and visual character.',
+        games: [
+          ['orbit', 'https://orbit-shifter.caco.space', 'GAME / PERSONAL PROJECT', 'Orbit Shifter', 'A one-button arcade game built around precise timing. Shift the signal between orbits, avoid striped gates and maintain your FLOW multiplier through a five-level campaign.', 'Play Orbit Shifter', 'Available online'],
+          ['bastion', 'https://bastion-grid.caco.space', 'GAME / PERSONAL PROJECT', 'Bastion Grid', 'A brass-and-enamel tower-defense diorama. Build towers against marching clockwork toys, let the springs run and defend your workshop.', 'Play Bastion Grid', 'Available online'],
+          ['glowzu', 'https://glowzu.caco.space', 'GAME / PERSONAL PROJECT', 'Glowzu', 'Guide a firefly through a misty landscape, gather lights and illuminate flowers with a flash. Move through each area while protecting your remaining lives.', 'Play Glowzu', 'Available online']
+        ],
+        homeAction: 'Back to home', homeHint: 'Personal projects', homeLabAction: 'View HomeLab', homeLabHint: 'Home automation and infrastructure', footer: 'A personal space. Always evolving.', back: 'Back to top', skip: 'Skip to content', theme: 'Theme', system: 'System', light: 'Light', dark: 'Dark'
       }
     }
   },

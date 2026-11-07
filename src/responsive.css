@@ -8,6 +8,7 @@
 .practice-teaser > *, .homelab-hero > *, .homelab-approach > *, .homelab-section-heading > *, .homelab-scope > *,
 .homelab-rack-heading > *, .rack-demo > *,
 .photo-hero > *, .photo-empty > *, .photo-structure-heading > *, .photo-next > * { min-width: 0; }
+.games-page-hero > *, .game-entry > * { min-width: 0; }
 h1, h2, h3, p, .eyebrow, .tag, .status {
   overflow-wrap: anywhere;
 }

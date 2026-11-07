@@ -1,8 +1,8 @@
 import { copyFile, mkdir, rm, writeFile } from 'node:fs/promises';
 import { pages } from '../src/site.mjs';
-import { homeLabCard, renderCv, renderHome, renderHomeLab, renderNotFound, renderPhoto, renderPractice, renderSelector } from './render.mjs';
+import { homeLabCard, renderCv, renderGamesPage, renderHome, renderHomeLab, renderNotFound, renderPhoto, renderPractice, renderSelector } from './render.mjs';
 
-const renderers = { home: renderHome, practice: renderPractice, cv: renderCv, homelab: renderHomeLab, photo: renderPhoto };
+const renderers = { home: renderHome, games: renderGamesPage, practice: renderPractice, cv: renderCv, homelab: renderHomeLab, photo: renderPhoto };
 const standalonePaths = new Set(pages.filter(page => page.id !== 'home').flatMap(page => Object.values(page.paths)));
 function enterAtContent(html) {
   return [...standalonePaths].reduce(
@@ -16,15 +16,18 @@ function assertTranslated(value, label) {
   if (value === '' || value == null) throw new Error(`Chýba preklad ${label}`);
 }
 function assertSameShape(left, right, label) {
+  if (Array.isArray(left) || Array.isArray(right)) {
+    if (!Array.isArray(left) || !Array.isArray(right) || left.length !== right.length) throw new Error(`Neúplný prekladový zoznam ${label}`);
+    left.forEach((item, index) => assertSameShape(item, right[index], `${label}[${index}]`));
+    return;
+  }
+  const leftObject = left && typeof left === 'object';
+  const rightObject = right && typeof right === 'object';
+  if (!leftObject && !rightObject) return;
+  if (leftObject !== rightObject) throw new Error(`Neúplný prekladový kľúč ${label}`);
   const leftKeys = Object.keys(left); const rightKeys = Object.keys(right);
   if (leftKeys.length !== rightKeys.length || leftKeys.some(key => !Object.hasOwn(right, key))) throw new Error(`Neúplný prekladový kľúč ${label}`);
-  leftKeys.forEach(key => {
-    if (Array.isArray(left[key]) && Array.isArray(right[key])) {
-      if (left[key].length !== right[key].length) throw new Error(`Neúplný prekladový zoznam ${label}.${key}`);
-      return;
-    }
-    if (left[key] && right[key] && typeof left[key] === 'object' && typeof right[key] === 'object') assertSameShape(left[key], right[key], `${label}.${key}`);
-  });
+  leftKeys.forEach(key => assertSameShape(left[key], right[key], `${label}.${key}`));
 }
 for (const page of pages) {
   if (!page.id || !page.paths?.sk || !page.paths?.en || !page.content?.sk || !page.content?.en) throw new Error(`Neúplný jazykový pár: ${page.id}`);

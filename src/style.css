@@ -159,8 +159,8 @@ h1 em { font: inherit; color: #c75400; }
 .project-art { height: 290px; display: grid; place-items: center; overflow: hidden; }
 .project-game-link { cursor: pointer; }
 .game .project-art { background: var(--orange); }
-.game .project-art>span { font-size: clamp(72px, 8vw, 116px); font-weight: 300; letter-spacing: -.08em; }
-.play-triangle { font-size: 43px; display: inline-block; margin-left: 20px; vertical-align: 9px; }
+.game .project-art > span { font-size: clamp(72px, 8vw, 116px); font-weight: 300; letter-spacing: -.08em; }
+.play-triangle { display: inline-block; margin-left: 20px; font-size: 43px; vertical-align: 9px; }
 .home-lab .project-art { background: var(--blue); }
 .home-lab-brand { display: grid; place-items: center; width: 100%; height: 100%; padding: clamp(1.5rem, 4vw, 3.5rem); }
 .home-assistant-mark { width: clamp(7.5rem, 15vw, 10.5rem); height: auto; }
@@ -308,9 +308,8 @@ h1 em { font: inherit; color: #c75400; }
 .company p:not(.large):not(.eyebrow) { font-size: 14px; color: var(--muted); max-width: 380px; }
 .button { margin-top: 34px; display: inline-flex; justify-content: space-between; gap: 80px; padding: 17px 0; border-bottom: 1px solid var(--ink); font-size: 14px; font-weight: 400; }
 .button:hover { color: #ad4f00; border-color: currentColor; }
-.practice-teaser .button, .company .button, .lens .button, .projects .project-link, .projects .game .status { position: relative; width: 100%; }
-.practice-teaser .button::before, .company .button::before, .lens .button::before, .projects .project-link::before, .projects .game .status::before { content: ""; position: absolute; inset: 0 0 auto; border-top: 1px solid var(--ink); pointer-events: none; }
-.projects .game .status { padding-top: 6px; margin-top: 19px; }
+.practice-teaser .button, .company .button, .lens .button, .projects .project-link { position: relative; width: 100%; }
+.practice-teaser .button::before, .company .button::before, .lens .button::before, .projects .project-link::before { content: ""; position: absolute; inset: 0 0 auto; border-top: 1px solid var(--ink); pointer-events: none; }
 .lens { padding: 96px 5%; display: grid; grid-template-columns: 1fr 1fr; gap: 8%; align-items: center; }
 .lens-art { background: #e8e3d9; height: 330px; display: flex; align-items: center; justify-content: space-around; overflow: hidden; }
 .lens-art div { width: 210px; aspect-ratio: 1; border: 1px solid var(--ink); border-radius: 50%; box-shadow: 0 0 0 24px #e8e3d9, 0 0 0 25px var(--blue), 0 0 0 55px #e8e3d9, 0 0 0 56px var(--blue); background: var(--blue); }

@@ -20,7 +20,7 @@
 ## Budúci obsah
 
 - [ ] Doplniť iba potvrdený kontakt alebo odkazy, ktoré používateľ chce verejne zdieľať.
-- [ ] Doplniť názov, URL a ukážku hry po dodaní overených údajov.
+- [x] Zachovaný pôvodný veľký vizuál PLAY na homepage; karta odkazuje na samostatnú SK/EN stránku Hry s Orbit Shifter, Bastion Grid a Glowzu (2026-11-07).
 - [ ] Vybrať úložisko a konkrétne fotografie/videá mimo Git; pred publikovaním odstrániť citlivé metadata.
 
 Každá nová úloha začína samostatným taskom/agentom alebo konverzáciou podľa `AGENTS.md`.
