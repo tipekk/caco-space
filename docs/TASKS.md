@@ -19,7 +19,7 @@
 - [x] Read-only overenie 2026-11-08: `caco-space` nie je medzi aktívnymi Pages projektmi prihláseného účtu a `caco-space.pages.dev` je DNS `NXDOMAIN`; názov sa javí ako uvoľnený. Nový projekt nebol vytvorený.
 - [x] Pripraviť a lokálne overiť GitHub Actions workflow pre automatický build a deploy `main` do existujúceho projektu `caco-webpage` (2026-11-08).
 - [x] Nastaviť GitHub secrets `CLOUDFLARE_API_TOKEN` a `CLOUDFLARE_ACCOUNT_ID` (2026-11-08; hodnoty nie sú v Git-e ani dokumentácii).
-- [ ] Odoslať workflow po samostatnom schválení a overiť prvý automatický deploy.
+- [x] Odoslať workflow a overiť prvý automatický deploy: GitHub Actions run `42492629101` a produkcia HTTP 200 (2026-11-08).
 
 ## Budúci obsah
 

@@ -9,7 +9,7 @@
 - `scripts/render.mjs` generuje HTML; `scripts/build.mjs` vytvára `dist/` a overuje páry, odkazy a kotvy.
 - Verejné jazykové cesty sú vždy úplné slovenské/anglické páry pod `/sk/` a `/en/`.
 - Téma a jazyk sú nezávislé; systémová téma funguje bez uloženej voľby a explicitná voľba sa uchováva lokálne.
-- GitHub je zdroj kódu. Produkciu na `https://caco.space` obsluhuje Cloudflare Pages projekt `caco-webpage`. Automatické zostavenie a nasadenie vetvy `main` zabezpečuje pripravený GitHub Actions workflow po nakonfigurovaní Cloudflare secrets; samostatné aplikácie patria do Workers a veľké médiá mimo Git.
+- GitHub je zdroj kódu. Produkciu na `https://caco.space` obsluhuje Cloudflare Pages projekt `caco-webpage`. Automatické zostavenie a nasadenie každého pushu do vetvy `main` zabezpečuje overený GitHub Actions workflow; samostatné aplikácie patria do Workers a veľké médiá mimo Git.
 
 ## Aktuálne verejné cesty
 

@@ -32,7 +32,7 @@ Na aktiváciu workflow treba v GitHub Actions nastaviť iba tieto repository sec
 - `CLOUDFLARE_API_TOKEN` — úzko obmedzený token s oprávnením nasadiť Cloudflare Pages.
 - `CLOUDFLARE_ACCOUNT_ID` — identifikátor Cloudflare účtu.
 
-Workflow bol lokálne pripravený, build overený a oba repository secrets nastavené 2026-11-08. Kým workflow nie je odoslaný do GitHubu a prvý beh úspešne overený, produkčné nasadenie zostáva manuálne.
+Workflow bol aktivovaný 2026-11-08. Prvý beh z commitu `b6c27e7` úspešne dokončil checkout, build aj Cloudflare Pages deploy; produkčná doména následne vrátila HTTP 200 a očakávané bezpečnostné hlavičky. Ďalší push do `main` preto automaticky publikuje nový overený build.
 
 Po prepnutí boli overené HTTP 200, bezpečnostné hlavičky a nový SK/EN obsah na hlavnej doméne. Starý Pages projekt `caco-space` už neslúži produkčnej doméne. Read-only kontrola 2026-11-08 ho nenašla medzi aktívnymi projektmi a `caco-space.pages.dev` vracia DNS `NXDOMAIN`, takže názov sa javí ako uvoľnený. Úplná dostupnosť na opätovné vytvorenie nebola otestovaná vytvorením projektu; kontrola nie je súhlasom na vytvorenie projektu, deploy ani DNS zmenu.
 
