@@ -17,4 +17,4 @@ Náhľad: http://127.0.0.1:4173. Koreň ponúka výber jazyka; hlavné stránky 
 
 Najprv `AGENTS.md`, potom relevantné dokumenty. Aktuálne úlohy sú v `docs/TASKS.md`; dizajn a publikačné pravidlá v `docs/DESIGN_PLAYBOOK.md`. Interné agentové zápisy a osobné zdrojové podklady sú zámerne mimo Git repozitára.
 
-GitHub je určený ako zdroj kódu. Budúci Cloudflare Pages build používa príkaz `npm run build` a výstup `dist`; nasadenie a DNS zmeny zostávajú samostatne schvaľovanou fázou.
+GitHub je zdroj kódu. Produkčný Cloudflare Pages projekt `caco-webpage` používa príkaz `npm run build` a výstup `dist`. Workflow `.github/workflows/deploy-pages.yml` po aktivácii automaticky zostaví a nasadí vetvu `main`; vyžaduje GitHub secrets `CLOUDFLARE_API_TOKEN` a `CLOUDFLARE_ACCOUNT_ID`. Podrobnosti sú v `docs/DEPLOYMENT_HANDOFF.md`.

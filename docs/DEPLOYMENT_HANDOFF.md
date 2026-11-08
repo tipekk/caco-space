@@ -1,6 +1,6 @@
 # Nasadenie hlavného webu
 
-Stav: web je nasadený. Zdroj je vo verejnom repozitári `tipekk/webpage`, produkčný Cloudflare Pages projekt je `caco-webpage` a hlavná doména je `https://caco.space`.
+Stav: web je nasadený. Zdroj je vo verejnom repozitári `tipekk/caco-space`, produkčný Cloudflare Pages projekt je `caco-webpage` a hlavná doména je `https://caco.space`.
 
 ## Aktuálne statické cesty
 
@@ -25,8 +25,15 @@ Interné agentové zápisy, osobné zdrojové podklady, pracovné prototypy, lok
 - Produkcia: `https://caco.space`
 - `https://www.caco.space` presmeruje na kanonické `https://caco.space/`.
 
-Projekt bol vytvorený ako klasický Cloudflare Pages projekt a aktuálny build bol odoslaný cez Wrangler. GitHub je zdroj kódu; automatické nasadenie z vetvy `main` zatiaľ nie je nakonfigurované. Pri ďalšej publikácii najprv pushnúť overený commit a potom nasadiť jeho `dist` do projektu `caco-webpage`.
+Projekt bol vytvorený ako Cloudflare Pages Direct Upload projekt a aktuálny build bol odoslaný cez Wrangler. Keďže Direct Upload projekt nemožno dodatočne prepnúť na natívnu Pages Git integráciu, repozitár používa GitHub Actions workflow `.github/workflows/deploy-pages.yml`. Workflow pri pushi do `main` spustí `npm run build` a nasadí `dist` do existujúceho projektu `caco-webpage` cez `cloudflare/wrangler-action`.
 
-Po prepnutí boli overené HTTP 200, bezpečnostné hlavičky a nový SK/EN obsah na hlavnej doméne. Starý Pages projekt `caco-space` zostal zachovaný bez vlastnej domény.
+Na aktiváciu workflow treba v GitHub Actions nastaviť iba tieto repository secrets; ich hodnoty nepatria do Git-u ani dokumentácie:
+
+- `CLOUDFLARE_API_TOKEN` — úzko obmedzený token s oprávnením nasadiť Cloudflare Pages.
+- `CLOUDFLARE_ACCOUNT_ID` — identifikátor Cloudflare účtu.
+
+Workflow bol lokálne pripravený, build overený a oba repository secrets nastavené 2026-11-08. Kým workflow nie je odoslaný do GitHubu a prvý beh úspešne overený, produkčné nasadenie zostáva manuálne.
+
+Po prepnutí boli overené HTTP 200, bezpečnostné hlavičky a nový SK/EN obsah na hlavnej doméne. Starý Pages projekt `caco-space` už neslúži produkčnej doméne. Read-only kontrola 2026-11-08 ho nenašla medzi aktívnymi projektmi a `caco-space.pages.dev` vracia DNS `NXDOMAIN`, takže názov sa javí ako uvoľnený. Úplná dostupnosť na opätovné vytvorenie nebola otestovaná vytvorením projektu; kontrola nie je súhlasom na vytvorenie projektu, deploy ani DNS zmenu.
 
 Samostatné obsahové stránky zostávajú cestami hlavnej domény. Ďalšie vlastné subdomény majú zmysel iba pre samostatné aplikácie alebo služby a vyžadujú samostatné rozhodnutie, DNS záznam a test presmerovania.

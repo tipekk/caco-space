@@ -12,10 +12,14 @@
 
 ## GitHub a nasadenie
 
-- [ ] Po explicitnom schválení vytvoriť alebo pripojiť samostatný GitHub repozitár a odoslať vetvu `main`.
-- [ ] Na GitHube potvrdiť, že osobné podklady, interné agentové zápisy, prototypy, `dist/` a veľké médiá nie sú súčasťou repozitára.
-- [ ] Až po samostatnom schválení pripojiť Cloudflare Pages: build `npm run build`, výstup `dist`.
-- [ ] Pred DNS zmenou overiť Pages preview a pripraviť mapu starých URL.
+- [x] Aktívny verejný GitHub repozitár je `tipekk/caco-space`; vetva `main` je odoslaná (overené 2026-11-08).
+- [x] Osobné podklady, interné agentové zápisy, prototypy, `dist/` a veľké médiá sú v aktívnej pracovnej kópii ignorované Gitom (overené 2026-11-08).
+- [x] Produkcia je pripojená cez Cloudflare Pages projekt `caco-webpage`: build `npm run build`, výstup `dist`.
+- [x] Pages preview, hlavná doména a presmerovanie `www` boli overené pri produkčnom prepnutí podľa `docs/DEPLOYMENT_HANDOFF.md`.
+- [x] Read-only overenie 2026-11-08: `caco-space` nie je medzi aktívnymi Pages projektmi prihláseného účtu a `caco-space.pages.dev` je DNS `NXDOMAIN`; názov sa javí ako uvoľnený. Nový projekt nebol vytvorený.
+- [x] Pripraviť a lokálne overiť GitHub Actions workflow pre automatický build a deploy `main` do existujúceho projektu `caco-webpage` (2026-11-08).
+- [x] Nastaviť GitHub secrets `CLOUDFLARE_API_TOKEN` a `CLOUDFLARE_ACCOUNT_ID` (2026-11-08; hodnoty nie sú v Git-e ani dokumentácii).
+- [ ] Odoslať workflow po samostatnom schválení a overiť prvý automatický deploy.
 
 ## Budúci obsah
 
